@@ -8,9 +8,119 @@
     align-items: center;
 }
 
-.loginContainer {
+.login-container {
     background-color: black;
     height: 650px;
     width: 600px;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    border: 0;
+}
+
+.logo {
+    display:flex;
+    align-self: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 0px;
+    background-size: 40px ;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-style: none;
+}
+
+.inputs-container {
+    flex: 7;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.inputs {
+    display: flex;
+    height: 200px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.input {
+    width: 400px;
+    height: 50px;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    outline: 0px solid blue;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    height: 300px;
+    margin-top: 20px;
+    background-color: black;
+    border: 1px solid #26282b;
+    border-radius: 10px;
+    font-size: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.input-container > p {
+    font-size: 14px;
+    color: #575b5f;
+    height: 5px;
+}
+
+.header {
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+::placeholder{
+    color : gray
+}
+
+.button {
+    background-color: white;
+    height: 50px;
+    width: 420px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button > p {
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+}
+
+.registro {
+    flex: 1;
+}
+
+.footer {
+    flex: 1;
 }

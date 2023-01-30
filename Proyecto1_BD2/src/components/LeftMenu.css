@@ -1,0 +1,113 @@
+
+.Menu-Container{
+    display: flex;
+    flex-direction: column;
+    background-color:#202020;
+    max-width: 240px;
+    min-width: 240px;
+    max-height: 658px;
+    min-height: 658px;
+    padding-top: 12px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.Menu-Container::-webkit-scrollbar{
+    width: 8px;
+    background-color: #202020;
+    
+}
+
+.Menu-Container::-webkit-scrollbar-thumb{
+    visibility: hidden;
+    
+}
+
+.Menu-Container:hover::-webkit-scrollbar-thumb{
+    display: flex;
+    background: #707170;
+    border-radius: 5px;
+    visibility: visible;
+}
+
+.Menu-Container::-webkit-scrollbar-track{
+    border-radius: 0;
+    margin: 4px;
+    margin-block-start: 4px;
+}
+
+
+.Boton-Container{
+    
+    display: flex;
+    cursor: pointer;
+    min-width: 224px;
+    max-width: 224px;
+    min-height: 40px;
+    max-height: 40px;
+    background-color:#383838;
+}
+
+.Boton1-Container{
+    
+    display: flex;
+    cursor: pointer;
+    min-width: 224px;
+    max-width: 224px;
+    min-height: 40px;
+    max-height: 40px;
+    background-color:#202020;
+}
+
+.Boton1-Container:hover{
+    cursor: pointer;
+    background-color:#383838;
+}
+
+.Boton-Container:hover{
+    cursor: pointer;
+    background-color:#4c4c4c;
+}
+
+.titulo
+{
+    color: #AAAAAA;
+    font-size: 14px;
+    font-family:'Roboto', Arial, sans-serif;
+    width: 224;
+    font-weight: 500;
+    margin-bottom: 2px;
+    margin-left: 35;
+}
+
+.Icon-container{
+    display:flex;
+    align-self: center;
+    height:24px;
+    width: 24px;
+    border:0;
+    background-size: 24px ;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 24;
+    cursor: pointer;
+    filter: invert(97%) sepia(2%) saturate(5%) hue-rotate(91deg) brightness(116%) contrast(100%);
+}
+
+text{
+    display: flex;
+    color: white;
+    align-self: center;
+    min-height: 20;
+    margin-top: 6.5;
+    align-self: center;
+    margin-left: 24;
+    font-size: 14;
+    font-weight: 400;
+    font-family:'Roboto', Arial, sans-serif;
+}
+
+
+
+
+

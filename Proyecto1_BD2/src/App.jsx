@@ -1,14 +1,24 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import Login from './views/login/login'
+import Home from './views/home/home'
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom"
 
 const  App = ()=> {
   
 
   return (
-    <>
-      <Login />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" exact element={<Login/>} />
+        <Route path="/home" exact element={<Home/>} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
