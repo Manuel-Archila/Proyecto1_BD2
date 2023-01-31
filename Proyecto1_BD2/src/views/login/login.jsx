@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import './login.css'
 import twitter from '../../assets/twitter.jpg'
-import LeftMenu from '../../components/LeftMenu.jsx'
 import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
@@ -9,7 +8,6 @@ const Login = () => {
 
     return (
         <div className="container">
-            <LeftMenu />
             <div className="login-container">
                 <div className='logo-container'>
                     <img className='logo' src={twitter} />
@@ -31,7 +29,8 @@ const Login = () => {
                     </div>
                 </div>
                 <div className='footer'>
-
+                    <p>¿No tienes cuenta?</p>
+                    <p onClick={() => navigation("/registro")} className="registro">Regístrate</p>
                 </div>
             </div>
         </div>

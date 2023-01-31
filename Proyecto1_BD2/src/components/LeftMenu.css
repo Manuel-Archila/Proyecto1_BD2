@@ -2,96 +2,114 @@
 .Menu-Container{
     display: flex;
     flex-direction: column;
-    background-color:#202020;
-    max-width: 240px;
-    min-width: 240px;
+    align-items: flex-end;
+    background-color:black;
+    max-width: 330px;
+    min-width: 330px;
     max-height: 658px;
     min-height: 658px;
     padding-top: 12px;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    position: absolute;
+
 }
 
-.Menu-Container::-webkit-scrollbar{
-    width: 8px;
-    background-color: #202020;
-    
-}
-
-.Menu-Container::-webkit-scrollbar-thumb{
-    visibility: hidden;
-    
-}
-
-.Menu-Container:hover::-webkit-scrollbar-thumb{
+.boton-tweet{
     display: flex;
-    background: #707170;
-    border-radius: 5px;
-    visibility: visible;
+    cursor: pointer;
+    background-color: #1d9bf0;
+    width: 200px;
+    height: 45px;
+    border-radius: 9999px;
+    margin-top: 8px;
+    margin-left: 8px;
+    justify-content: center;
+    
 }
 
-.Menu-Container::-webkit-scrollbar-track{
-    border-radius: 0;
-    margin: 4px;
-    margin-block-start: 4px;
+.perfil-container{
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    background-color: black;
+    width: 200px;
+    height: 125px;
+    margin-top: 58px;
+    margin-left: 8px;
+    justify-content: space-around;
 }
 
+.image_profile{
+    display:flex;
+    align-self: center;
+    height:54px;
+    width: 54px;
+    border:0;
+    background-size: 54px ;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 999px;
+}
+
+.perfil-text-container{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    background-color: black;
+    margin-top: 8px;
+    margin-left: 8px;
+    justify-content: center;
+}
 
 .Boton-Container{
     
     display: flex;
     cursor: pointer;
-    min-width: 224px;
-    max-width: 224px;
-    min-height: 40px;
-    max-height: 40px;
-    background-color:#383838;
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 58px;
+    max-height: 58px;
+    background-color:black;
 }
 
-.Boton1-Container{
-    
-    display: flex;
-    cursor: pointer;
-    min-width: 224px;
-    max-width: 224px;
-    min-height: 40px;
-    max-height: 40px;
-    background-color:#202020;
-}
 
-.Boton1-Container:hover{
-    cursor: pointer;
-    background-color:#383838;
-}
-
-.Boton-Container:hover{
-    cursor: pointer;
-    background-color:#4c4c4c;
-}
-
-.titulo
-{
-    color: #AAAAAA;
-    font-size: 14px;
-    font-family:'Roboto', Arial, sans-serif;
-    width: 224;
-    font-weight: 500;
-    margin-bottom: 2px;
-    margin-left: 35;
-}
 
 .Icon-container{
     display:flex;
     align-self: center;
-    height:24px;
-    width: 24px;
+    height:54px;
+    width: 54px;
     border:0;
-    background-size: 24px ;
+    background-size: 32px ;
     background-position: center;
     background-repeat: no-repeat;
-    margin-left: 24;
     cursor: pointer;
-    filter: invert(97%) sepia(2%) saturate(5%) hue-rotate(91deg) brightness(116%) contrast(100%);
+    filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(500%) contrast(100%);
+}
+
+.Icon-container2{
+    display:flex;
+    align-self: center;
+    height:54px;
+    width: 54px;
+    border:0;
+    background-size: 40px ;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(500%) contrast(100%);
+}
+
+.Icon-container3{
+    display:flex;
+    align-self: center;
+    height:54px;
+    width: 54px;
+    border:0;
+    background-size: 25px ;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    filter: invert(0%) sepia(100%) saturate(0%) hue-rotate(0deg) brightness(500%) contrast(100%);
 }
 
 text{
@@ -101,10 +119,8 @@ text{
     min-height: 20;
     margin-top: 6.5;
     align-self: center;
-    margin-left: 24;
-    font-size: 14;
-    font-weight: 400;
-    font-family:'Roboto', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 

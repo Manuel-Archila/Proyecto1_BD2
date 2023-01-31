@@ -8,7 +8,7 @@
     align-items: center;
 }
 
-.login-container {
+.register-container {
     background-color: black;
     height: 650px;
     width: 600px;
@@ -17,26 +17,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    border: 0;
-}
-
-.logo {
-    display:flex;
-    align-self: center;
-    height: 40px;
-    width: 40px;
-    border-radius: 0px;
-    background-size: 40px ;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-style: none;
 }
 
 .inputs-container {
@@ -55,6 +35,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    margin-top: 40px;
 }
 
 .input {
@@ -97,43 +78,53 @@
     margin-bottom: 20px;
 }
 
-::placeholder{
-    color : gray
-}
-
-.button {
-    background-color: white;
-    height: 50px;
-    width: 420px;
-    border-radius: 25px;
+.logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-}
-
-.button > p {
-    font-size: 18px;
-    color: black;
-    font-weight: bold;
-}
-
-.registro {
     flex: 1;
+    border: 0;
 }
 
-.footer {
-    flex: 1;
+.logo {
+    display:flex;
+    align-self: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 0px;
+    background-size: 40px ;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-style: none;
+}
+
+.select-container {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    height: 300px;
+    margin-top: 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 1px solid #26282b;
 }
 
-.footer > p {
-    margin-right: 5px;
-}
-
-.registro {
-    color: #52a9e8;
+.selector{
+    border: 0;
+    background-color: black;
+    border-radius: 10px;
+    height: 40px;
+    width: 400px;
+    outline: 0px;
     cursor: pointer;
+}
+
+.country-selector{
+    font-size: 14px;
+    color: #575b5f;
+    height: 30px;
+    width: 400px;
 }

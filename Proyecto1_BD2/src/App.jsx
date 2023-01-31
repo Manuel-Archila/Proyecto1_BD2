@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import Login from './views/login/login'
 import Home from './views/home/home'
+import Register from './views/register/register'
 
 import {
   BrowserRouter,
@@ -17,6 +18,7 @@ const  App = ()=> {
       <Routes>
         <Route path="/" exact element={<Login/>} />
         <Route path="/home" exact element={<Home/>} />
+        <Route path="/registro" exact element={<Register/>} />
       </Routes>
     </BrowserRouter>
   )
