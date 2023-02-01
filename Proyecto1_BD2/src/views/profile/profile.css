@@ -1,0 +1,58 @@
+.container-home {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.menu-container-home {
+    flex: 1;
+}
+
+.info-container {
+    flex: 1;
+    max-width: 600px;
+}
+.back {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.back-arrow {
+    height: 32px;
+    width: 32px;
+    background-image: url('../../../public/arrow.png');
+    background-color:red;
+}
+
+.banner {
+    background-color: aquamarine;
+    height : 200px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.circle {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.info {
+    height : 150px;
+    background-color: blue;
+}
+
+.feed-container {
+    flex: 1;
+    max-width: 600px;
+}
+
+.extra {
+    flex: 1;
+    width: 100%;
+}

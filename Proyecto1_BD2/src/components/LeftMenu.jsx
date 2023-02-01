@@ -8,6 +8,7 @@ import perfil from '../assets/perfil.jpg'
 import opciones from '../assets/opcion.jpg'
 import analisis from '../assets/analisis.jpg'
 import foto from '../assets/empty_profile.jpg'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -18,6 +19,7 @@ import foto from '../assets/empty_profile.jpg'
 
 
 const LeftMenu = () => {
+    const navigation = useNavigate()
     return (
         <div className="Menu-Container">
             <div className="Boton-Container">
@@ -45,7 +47,7 @@ const LeftMenu = () => {
             </div>
             <div className="Boton-Container">
                 <div className="Icon-container" style={{ backgroundImage: `url(${perfil})` }} />
-                <text>Perfil</text>
+                <text onClick={() =>{navigation("/profile")}}>Perfil</text>
             </div>
             <div className="Boton-Container">
                 <div className="Icon-container" style={{ backgroundImage: `url(${opciones})` }} />
