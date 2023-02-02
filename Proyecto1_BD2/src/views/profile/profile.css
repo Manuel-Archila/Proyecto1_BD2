@@ -20,36 +20,71 @@
     height: 50px;
     display: flex;
     align-items: center;
+    border-right: 1px solid gray;
+}
+
+.back p{
+    font-weight: bold;
+    font-size: 16px;  
 }
 
 .back-arrow {
     height: 32px;
     width: 32px;
-    background-image: url('../../../public/arrow.png');
-    background-color:red;
+    background-image: url('../../assets/flecha.jpg');
+    background-size: contain;
+    cursor:pointer;
 }
 
 .banner {
-    background-color: aquamarine;
+    background-image: url('../../assets/banner.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
     height : 200px;
     display: flex;
     align-items: flex-end;
 }
 
-.circle {
-    height: 100px;
-    width: 100px;
+.profpic {
+    height: 110px;
+    width: 110px;
     border-radius: 50%;
+    background-image: url('../../assets/empty_profile.jpg');
+    background-size: contain;
+    
 }
 
 .info {
-    height : 150px;
-    background-color: blue;
+    height : 100px;
+    display: flex;
+    border: 1px solid gray;
 }
 
+.name {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
 .feed-container {
     flex: 1;
     max-width: 600px;
+}
+
+.yours {
+    height: 30px;
+    border: 1px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.yours-item {
+    cursor: pointer;
+}
+
+.yours-item:hover {
+    color: blue;
+    text-decoration: underline;
 }
 
 .extra {
