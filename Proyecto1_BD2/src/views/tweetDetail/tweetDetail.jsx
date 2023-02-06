@@ -10,6 +10,7 @@ const TweetDetail = ({ clickBack, tweetInfo }) => {
 
     const [reply, setReply] = useState('')
     const [comments, setComments] = useState([])
+    const [likes, setLikes] = useState(tweetInfo.likes)
 
     const handleChange = (e) => {
         const value = e.target.value
@@ -31,6 +32,24 @@ const TweetDetail = ({ clickBack, tweetInfo }) => {
 
         const responseJson = await response.json()
         setComments(responseJson[0].comments)
+    }
+
+    const clickLike = async () => {
+        const URL = 'http://localhost:5000/like/'
+        const id = tweetInfo._id.$oid
+        const response = await fetch(URL, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify({
+                "id_tweet": id,
+            })
+        })
+
+        const responseJson = await response.json()
+        setLikes(likes + 1)
     }
 
     const submitReply = async () => {
@@ -91,12 +110,12 @@ const TweetDetail = ({ clickBack, tweetInfo }) => {
                     </div>
                     <div className="likes-tweet-container">
                         <div className='box-cont'>
-                            <p className='like-count'>{tweetInfo.likes}</p>
+                            <p className='like-count'>{likes}</p>
                             <p className="date-tweet">Likes</p>
                         </div>
                     </div>
                     <div className="likes-tweet-container">
-                        <div className='box-cont2'>
+                        <div className='box-cont2' onClick={clickLike}>
                             <img className="icon-tweet-details" src={like} />
                         </div>
                     </div>

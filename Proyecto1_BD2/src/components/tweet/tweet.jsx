@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './tweet.css'
 import like from '../../assets/heart.png'
 import comment from '../../assets/comentario.png'
@@ -17,25 +17,44 @@ import p10 from '../../assets/personas/P10.jpeg'
 
 const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count,tweetInfo }) => {
 
-    const pictures = [p1,p2,p3,p4,p5,p7,p8,p9,p10]
-
     const getRandomInt = () => {
-            return Math.floor(Math.random() * (pictures.length)) - 1;
-        } 
-    
+        return Math.floor(Math.random() * (pictures.length)) - 1;
+    } 
+
+    const pictures = [p1,p2,p3,p4,p5,p7,p8,p9,p10]
+    const [likes, setLikes] = useState(numberLikes)
+    const random = useRef(getRandomInt())
+
+
     
     const handleClick = () => {
-        console.log(tweetInfo)
         click(tweetInfo)
     }
-    
 
+    const clickLike = async () => {
+        const URL = 'http://localhost:5000/like/'
+        const id = tweetInfo._id.$oid
+        const response = await fetch(URL, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify({
+                "id_tweet": id,
+            })
+        })
+
+        const responseJson = await response.json()
+        setLikes(likes + 1)
+    }
+    
     return (
-        <div onClick={handleClick} className="container-tweet">
+        <div className="container-tweet">
             <div className="header" />
-            <div className="content-container-tweet">
+            <div className="content-container-tweet" onClick={handleClick}>
                 <div className="user-circle-container">
-                    <div className="user-circle" style={{ backgroundImage: `url(${pictures[getRandomInt()]})` }} />
+                    <div className="user-circle" style={{ backgroundImage: `url(${pictures[random.current]})` }} />
                 </div>
                 <div className="content">
                     <div className="username">
@@ -44,14 +63,14 @@ const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count
                         <p className="date-tweet">{date}</p>
                     </div>
                     <div className="content-tweet">
-                        {text.substring(0,130)}
+                        {text.substring(0, 130)}
                     </div>
                 </div>
             </div>
             <div className="footer-tweet">
-                <div className="likes-tweet">
+                <div className="likes-tweet" onClick={clickLike}>
                     <img className="icon-tweet" src={like} />
-                    <p>{numberLikes}</p>
+                    <p>{likes}</p>
                 </div>
                 <div className="comments-tweet">
                     <img className="comment-tweet" src={comment} />

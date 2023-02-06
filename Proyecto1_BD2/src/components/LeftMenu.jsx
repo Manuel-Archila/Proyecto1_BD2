@@ -22,7 +22,7 @@ const LeftMenu = () => {
 
             <div className="Boton-Container">
                 <div className="Icon-container2" style={{ backgroundImage: `url(${casa})` }} />
-                <p>Inicio</p>
+                <p onClick={() =>{navigation("/home")}}>Inicio</p>
             </div>
             
             <div className="Boton-Container">
