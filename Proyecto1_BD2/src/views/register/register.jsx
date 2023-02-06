@@ -1,9 +1,71 @@
 import './register.css'
+import { useState } from 'react'
 import twitter from '../../assets/twitter.jpg'
 import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
     const navigation = useNavigate()
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    const [country, setCountry] = useState('')
+    const [message, setMessage] = useState('')
+
+
+    const printStates = () => {
+        console.log(username)
+        console.log(password)
+        console.log(country)
+    }
+    const handleUsername = (event) =>{
+        setUsername(event.target.value)
+    }
+
+    const handlePassword = (event) =>{
+        setPassword(event.target.value)
+        
+    }
+
+    const handleCountry = (event) =>{
+        setCountry(event.target.value)
+        
+    }
+
+    const createUser = async() => {
+        const URL = 'http://localhost:5000/user/'
+        
+        if(username !== '' && password !== '' && country !== ''){
+            const response = await fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "username": username,
+                    "password": password, 
+                    "country": country
+                })
+
+            })
+            const responseJSON = await response.json()
+            if (responseJSON.message === 'error'){
+                console.log(responseJSON.message)
+                setMessage('Este usuario ya existe')
+                console.log('Este usuario ya existe')
+            }else{
+                console.log('Usuario creado correctamente')
+                setMessage('Usuario creado correctamente')
+                setUsername('')
+                setPassword('')
+                setCountry('')
+                setTimeout(() =>{
+                    navigation("/home")
+                }, 5000)
+            }
+        }else{
+            setMessage("Ingrese todos los datos")
+            console.log('Ingrese todos los datos')
+        }
+    }
 
     return (
         <div className="container">
@@ -16,15 +78,15 @@ const Register = () => {
                         <p className='header'>Crea tu cuenta</p>
                         <div className='input-container'>
                             <p>Nombre de usuario</p>
-                            <input className='input' type="text" name="usuario" placeholder="" />
+                            <input className='input' type="text" name="usuario" placeholder="" onChange={handleUsername}/>
                         </div>
                         <div className='input-container'>
                             <p>Contraseña</p>  
-                            <input className='input' type="password" name="password" placeholder=""/>
+                            <input className='input' type="text" name="password" placeholder="" onChange={handlePassword}/>
                         </div>
                         <div className='select-container'>
-                            <label className="country-selector"for="country">Country:</label>
-                            <select class="selector" id="country" name="country">
+                            <label className="country-selector" htmlFor="country">Country:</label>
+                            <select onChange={handleCountry} className="selector" id="country" name="country">
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Åland Islands">Åland Islands</option>
                                 <option value="Albania">Albania</option>
@@ -273,7 +335,7 @@ const Register = () => {
                         </div>
                     </div>
                         
-                    <div className='button' onClick={() => navigation("/home")}>
+                    <div className='button' onClick={() => {createUser(); printStates()}}>
                         <p>Crear Cuenta</p>
                     </div>
                 </div>

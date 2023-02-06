@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import './home.css'
 import twitter from '../../assets/twitter.jpg'
 import LeftMenu from '../../components/LeftMenu.jsx'
@@ -8,6 +8,12 @@ import TweetDetail from '../tweetDetail/tweetDetail'
 const Home = () => {
 
     const [feed, setFeed] = useState(true);
+    const tweetInfo= useRef({})
+
+    const clickTweet = (tweetComments) => {
+        tweetInfo.current = tweetComments
+        setFeed(false)
+    }
 
     return (
         <div className="container-home">
@@ -15,7 +21,7 @@ const Home = () => {
                 <LeftMenu />
             </div>
             <div className="feed-container">
-                {feed ? <Feed clickTweet={() => setFeed(false)}/> : <TweetDetail clickBack={() => setFeed(true)}/>}
+                {feed ? <Feed clickTweet={clickTweet}/> : <TweetDetail tweetInfo={tweetInfo.current} clickBack={() => setFeed(true)}/>}
             </div>
             <div className="extra" />
         </div>

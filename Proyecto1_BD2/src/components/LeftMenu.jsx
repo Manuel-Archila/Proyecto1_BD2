@@ -11,15 +11,9 @@ import foto from '../assets/empty_profile.jpg'
 import { useNavigate } from 'react-router-dom'
 
 
-
-
-
-
-
-
-
 const LeftMenu = () => {
     const navigation = useNavigate()
+    const user = localStorage.getItem('user')
     return (
         <div className="Menu-Container">
             <div className="Boton-Container">
@@ -28,39 +22,39 @@ const LeftMenu = () => {
 
             <div className="Boton-Container">
                 <div className="Icon-container2" style={{ backgroundImage: `url(${casa})` }} />
-                <text>Inicio</text>
+                <p>Inicio</p>
             </div>
             
             <div className="Boton-Container">
                 <div className="Icon-container" style={{ backgroundImage: `url(${lupa})` }} />
-                <text>Explorar</text>
+                <p>Explorar</p>
             </div>
             
             <div className="Boton-Container">
                 <div className="Icon-container" style={{ backgroundImage: `url(${campana})` }} />
-                <text>Notificaciones</text>
+                <p>Notificaciones</p>
             </div>
             
             <div className="Boton-Container">
                 <div className="Icon-container" style={{ backgroundImage: `url(${mensaje})` }} />
-                <text>Mensajes</text>
+                <p>Mensajes</p>
             </div>
             <div className="Boton-Container">
                 <div className="Icon-container" style={{ backgroundImage: `url(${perfil})` }} />
-                <text onClick={() =>{navigation("/profile")}}>Perfil</text>
+                <p onClick={() =>{navigation("/profile")}}>Perfil</p>
             </div>
             <div className="Boton-Container">
                 <div className="Icon-container" style={{ backgroundImage: `url(${opciones})` }} />
-                <text>Más opciones</text>
+                <p>Más opciones</p>
             </div>
 
             <div className="Boton-Container">
                 <div className="Icon-container3" style={{ backgroundImage: `url(${analisis})` }} />
-                <text>Twitter Analytics</text>
+                <p>Twitter Analytics</p>
             </div>
             <div className="Boton-Container">
                 <button className="boton-tweet">
-                    <text>Twitear</text>
+                    <p>Twitear</p>
                 </button>
             </div>
 
@@ -68,9 +62,10 @@ const LeftMenu = () => {
                 <div className="perfil-container">
                     <div className="image_profile" style={{ backgroundImage: `url(${foto})` }} />
 
-                    <div className="perfil-text-container">
-                        <text>Twitear</text>
-                        <text>@Twitear</text>
+                    <div className="perfil-p-container">
+                        <div className="arroba">@{user}</div>
+                        <div className="arroba"> {user}</div>
+
                         </div>
                 </div>
             </div>
