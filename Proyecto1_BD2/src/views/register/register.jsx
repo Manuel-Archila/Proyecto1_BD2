@@ -50,9 +50,7 @@ const Register = () => {
             if (responseJSON.message === 'error'){
                 console.log(responseJSON.message)
                 setMessage('Este usuario ya existe')
-                console.log('Este usuario ya existe')
             }else{
-                console.log('Usuario creado correctamente')
                 setMessage('Usuario creado correctamente')
                 setUsername('')
                 setPassword('')
@@ -63,7 +61,6 @@ const Register = () => {
             }
         }else{
             setMessage("Ingrese todos los datos")
-            console.log('Ingrese todos los datos')
         }
     }
 
@@ -82,11 +79,11 @@ const Register = () => {
                         </div>
                         <div className='input-container'>
                             <p>Contraseña</p>  
-                            <input className='input' type="text" name="password" placeholder="" onChange={handlePassword}/>
+                            <input className='input' type="password" name="password" placeholder="" onChange={handlePassword}/>
                         </div>
                         <div className='select-container'>
                             <label className="country-selector" htmlFor="country">Country:</label>
-                            <select onChange={handleCountry} className="selector" id="country" name="country">
+                            <select value={country} onChange={handleCountry} className="selector" id="country" name="country">
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Åland Islands">Åland Islands</option>
                                 <option value="Albania">Albania</option>
