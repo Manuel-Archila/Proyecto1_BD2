@@ -1,9 +1,7 @@
 import { useRef, useState } from 'react'
 import './analytics.css'
 import twitter from '../../assets/twitter.jpg'
-import LeftMenu from '../../components/LeftMenu.jsx'
-import Feed from '../feed/feed.jsx'
-import TweetDetail from '../tweetDetail/tweetDetail'
+import TopHashtags from '../../components/topHashtags/topHashtags'
 
 const Analytics = () => {
 
@@ -16,7 +14,20 @@ const Analytics = () => {
     }
 
     return (
-        <div className="container-home">
+        <div className="container-analytics">
+            <div className='header-analytics'>
+            <div className="Icon-container3" style={{ backgroundImage: `url(${twitter})` }} />
+                <p>Twitter Analytics</p>
+                <div className='helper' />
+            </div>
+            <div className='body-analytics'>
+                <TopHashtags />
+                <div className='pr'></div>
+                <div className='pr'></div>
+                <div className='pr'></div>
+                <div className='pr'></div>
+                <div className='pr'></div>
+            </div>
         </div>
     )
 }

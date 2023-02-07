@@ -15,10 +15,6 @@ const LeftMenu = ({picture}) => {
     const navigation = useNavigate()
     const user = localStorage.getItem('user')
 
-
-
-
-
     return (
         <div className="Menu-Container">
             <div className="Boton-Container">
@@ -53,13 +49,13 @@ const LeftMenu = ({picture}) => {
                 <p>Más opciones</p>
             </div>
 
-            <div className="Boton-Container">
+            <div className="Boton-Container" onClick={() => navigation('/analytics')}>
                 <div className="Icon-container3" style={{ backgroundImage: `url(${analisis})` }} />
                 <p>Twitter Analytics</p>
             </div>
             <div className="Boton-Container">
                 <button className="boton-tweet">
-                    <p>Twitear</p>
+                    <p>Twittear</p>
                 </button>
             </div>
 
