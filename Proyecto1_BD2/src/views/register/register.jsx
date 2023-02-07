@@ -11,23 +11,16 @@ const Register = () => {
     const [message, setMessage] = useState('')
 
 
-    const printStates = () => {
-        console.log(username)
-        console.log(password)
-        console.log(country)
-    }
     const handleUsername = (event) =>{
         setUsername(event.target.value)
     }
 
     const handlePassword = (event) =>{
         setPassword(event.target.value)
-        
     }
 
     const handleCountry = (event) =>{
-        setCountry(event.target.value)
-        
+        setCountry(event.target.value)   
     }
 
     const createUser = async() => {
@@ -47,11 +40,14 @@ const Register = () => {
 
             })
             const responseJSON = await response.json()
-            if (responseJSON.message === 'error'){
+            console.log(responseJSON.message)
+            if (responseJSON.message === '409'){
                 console.log(responseJSON.message)
                 setMessage('Este usuario ya existe')
+            }else if(responseJSON.message === '400'){
+                setMessage('Ha ocurrido un error')
             }else{
-                setMessage('Usuario creado correctamente')
+                setMessage('Usuario creado exitosamente')
                 setUsername('')
                 setPassword('')
                 setCountry('')
@@ -331,8 +327,8 @@ const Register = () => {
                             </select>
                         </div>
                     </div>
-                        
-                    <div className='button' onClick={() => {createUser(); printStates()}}>
+                    {message && <div className='error'>{message}</div>}    
+                    <div className='button' onClick={() => {createUser()}}>
                         <p>Crear Cuenta</p>
                     </div>
                 </div>

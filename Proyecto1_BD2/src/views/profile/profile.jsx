@@ -11,6 +11,8 @@ const Profile = () => {
 
     const [feed, setFeed] = useState(true);
 
+    const user = localStorage.getItem('user')
+
     return (
         <div className="container-home">
             <div className="menu-container-home">
@@ -19,14 +21,14 @@ const Profile = () => {
             <div className="info-container">
                 <div className="back">
                     <div onClick={() =>{navigation("/home")}} className="back-arrow"/>
-                    <p>Archila15</p>
+                    <p>{user}</p>
                 </div>
                 <div className="banner">
                     <div className="profpic"/>
                 </div>
                 <div className="info">
                     <div className="name">
-                        <h2>Archila15</h2>
+                        <h2>{user}</h2>
                     </div>
                 </div>
                 <div className="yours">

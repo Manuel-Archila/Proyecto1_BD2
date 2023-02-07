@@ -1,0 +1,22 @@
+.container-home {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.menu-container-home {
+    flex: 1;
+}
+
+.feed-container {
+    flex: 1;
+    max-width: 600px;
+}
+
+.extra {
+    flex: 1;
+    width: 100%;
+}

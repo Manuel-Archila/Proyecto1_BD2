@@ -44,6 +44,8 @@ const Profilefeed = ({ clickTweet }) => {
                                comentarios = {tweeet.comments}
                                comments_count = {tweeet.comments_count}
                                tweetInfo={tweeet}
+                               bandera={true}
+
                                />
                         ))}
                     <div className="button-more-container">

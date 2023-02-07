@@ -82,7 +82,7 @@ const Feed = ({ clickTweet }) => {
                     </div>
                 </div>
                 <div className="scroll">
-                {contenido.map((tweeet)=>(
+                    {contenido.map((tweeet)=>(
                         <Tweet key={tweeet._id.$oid}
                                click={clickTweet} 
                                username ={tweeet.username} 
@@ -92,7 +92,9 @@ const Feed = ({ clickTweet }) => {
                                comentarios = {tweeet.comments}
                                comments_count = {tweeet.comments_count}
                                tweetInfo={tweeet}
-                               />
+                               bandera={false}
+                               imagen={tweet.image}
+                            />
                         ))}
                     <div className="button-more-container">
                         <div className="button-post" onClick={Plus5}>   

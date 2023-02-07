@@ -10,13 +10,27 @@ const TweetDetail = ({ clickBack, tweetInfo }) => {
 
     const [reply, setReply] = useState('')
     const [comments, setComments] = useState([])
-    const [likes, setLikes] = useState(tweetInfo.likes)
+    const [likes, setLikes] = useState(0)
 
     const handleChange = (e) => {
         const value = e.target.value
         if (value.length < 130) {
             setReply(value)
         }
+    }
+
+    const getLikes = async () => {
+        const URL = 'http://localhost:5000/like/'
+        const id = tweetInfo._id.$oid
+        const response = await fetch(URL, {
+            method: 'GET',
+            headers: {
+                'id_tweet': id
+            }
+        })
+
+        const responseJSON = await response.json()
+        setLikes(parseInt(responseJSON.likes))
     }
 
     const getComments = async () => {
@@ -52,6 +66,7 @@ const TweetDetail = ({ clickBack, tweetInfo }) => {
         setLikes(likes + 1)
     }
 
+
     const submitReply = async () => {
         if (reply.length > 0) {
             const URL = 'http://localhost:5000/tweet/'
@@ -81,6 +96,7 @@ const TweetDetail = ({ clickBack, tweetInfo }) => {
 
     useEffect(() => {
         getComments()
+        getLikes()
     }, [])
 
 
@@ -133,9 +149,11 @@ const TweetDetail = ({ clickBack, tweetInfo }) => {
                 </div>
                 <div className="scroll-comments">
                     {comments.map((comment) => <Comment 
+                        key={comment.username_comment}
                         username={comment.username_comment}
                         text={comment.text_comment}
-                        date={comment.date_comment}  />)
+                        date={comment.date_comment}
+                        tweet_id={tweetInfo._id.$oid}  />)
                     }
                 </div>
             </div>

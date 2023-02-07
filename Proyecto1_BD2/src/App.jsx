@@ -4,6 +4,7 @@ import Login from './views/login/login'
 import Home from './views/home/home'
 import Register from './views/register/register'
 import Profile from './views/profile/profile'
+import Analytics from './views/analytics/analytics'
 
 import {
   BrowserRouter,
@@ -21,6 +22,7 @@ const  App = ()=> {
         <Route path="/home" exact element={<Home/>} />
         <Route path="/register" exact element={<Register/>} />
         <Route path="/profile" exact element={<Profile/>} />
+        <Route path="/analytics" exact element={<Analytics/>} />
       </Routes>
     </BrowserRouter>
   )
