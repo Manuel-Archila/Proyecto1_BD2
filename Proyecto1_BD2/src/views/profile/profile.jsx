@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './profile.css'
 import twitter from '../../assets/twitter.jpg'
 import LeftMenu from '../../components/LeftMenu.jsx'
@@ -10,13 +10,34 @@ const Profile = () => {
     const navigation = useNavigate()
 
     const [feed, setFeed] = useState(true);
+    const [desc, setDesc] = useState('')
+    const [image, setImage] = useState('')
 
     const user = localStorage.getItem('user')
+
+
+    const getDescription = async() => {
+        const url = 'http://localhost:5000/description/'
+        const response = await fetch(url, {
+          method:'GET',
+          headers: {
+            'username' : user,
+          }
+        })
+        const responseJson = await response.json()
+        console.log(responseJson)
+        setDesc(responseJson.desciption)
+        setImage(responseJson.image)
+      }
+    
+    useEffect(() => {
+        getDescription()
+    }, [])
 
     return (
         <div className="container-home">
             <div className="menu-container-home">
-                <LeftMenu />
+                <LeftMenu picture={image} />
             </div>
             <div className="info-container">
                 <div className="back">
@@ -24,12 +45,11 @@ const Profile = () => {
                     <p>{user}</p>
                 </div>
                 <div className="banner">
-                    <div className="profpic"/>
+                    <div className="profpic" style={{backgroundImage:`url(${image})`}}/>
                 </div>
                 <div className="info">
-                    <div className="name">
-                        <h2>{user}</h2>
-                    </div>
+                    <div className="username">{user}</div>
+                    <div className="desc">{desc}</div>
                 </div>
                 <div className="yours">
                     <div className='yours-item'>Tweets</div>

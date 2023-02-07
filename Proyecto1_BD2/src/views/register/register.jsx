@@ -9,6 +9,8 @@ const Register = () => {
     const [password, setPassword] = useState('')
     const [country, setCountry] = useState('')
     const [message, setMessage] = useState('')
+    const [description, setDescription] = useState('')
+
 
 
     const handleUsername = (event) =>{
@@ -23,10 +25,14 @@ const Register = () => {
         setCountry(event.target.value)   
     }
 
+    const handleDescription = (event) =>{
+        setDescription(event.target.value)   
+    }
+
     const createUser = async() => {
         const URL = 'http://localhost:5000/user/'
         
-        if(username !== '' && password !== '' && country !== ''){
+        if(username !== '' && password !== '' && country !== '' && description !== ''){
             const response = await fetch(URL, {
                 method: 'POST',
                 headers: {
@@ -35,7 +41,8 @@ const Register = () => {
                 body: JSON.stringify({
                     "username": username,
                     "password": password, 
-                    "country": country
+                    "country": country,
+                    "desciption": description
                 })
 
             })
@@ -52,6 +59,7 @@ const Register = () => {
                 setPassword('')
                 setCountry('')
                 setTimeout(() =>{
+                    //localStorage.setItem('user', user)
                     navigation("/home")
                 }, 5000)
             }
@@ -70,13 +78,19 @@ const Register = () => {
                     <div className='inputs'>
                         <p className='header'>Crea tu cuenta</p>
                         <div className='input-container'>
-                            <p>Nombre de usuario</p>
+                        <label className="country-selector" htmlFor="country">Nombre de usuario:</label>
                             <input className='input' type="text" name="usuario" placeholder="" onChange={handleUsername}/>
                         </div>
                         <div className='input-container'>
-                            <p>Contraseña</p>  
+                            <label className="country-selector" htmlFor="country">Contraseña:</label>
                             <input className='input' type="password" name="password" placeholder="" onChange={handlePassword}/>
                         </div>
+
+                        <div className='input-container'>
+                            <label className="country-selector" htmlFor="country">Descripción:</label>
+                            <input className='input2' type="text" name="password" maxLength={100} placeholder="" onChange={handleDescription}/>
+                        </div>
+                        
                         <div className='select-container'>
                             <label className="country-selector" htmlFor="country">Country:</label>
                             <select value={country} onChange={handleCountry} className="selector" id="country" name="country">

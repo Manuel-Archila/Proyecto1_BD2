@@ -11,9 +11,14 @@ import foto from '../assets/empty_profile.jpg'
 import { useNavigate } from 'react-router-dom'
 
 
-const LeftMenu = () => {
+const LeftMenu = ({picture}) => {
     const navigation = useNavigate()
     const user = localStorage.getItem('user')
+
+
+
+
+
     return (
         <div className="Menu-Container">
             <div className="Boton-Container">
@@ -60,10 +65,9 @@ const LeftMenu = () => {
 
             <div className="Boton-Container">
                 <div className="perfil-container">
-                    <div className="image_profile" style={{ backgroundImage: `url(${foto})` }} />
+                    <div className="image_profile" style={{ backgroundImage: `url(${picture})` }} />
 
                     <div className="perfil-p-container">
-                        <div className="arroba">@{user}</div>
                         <div className="arroba"> {user}</div>
 
                         </div>

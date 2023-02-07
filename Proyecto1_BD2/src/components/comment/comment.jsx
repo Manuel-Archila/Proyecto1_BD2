@@ -20,10 +20,11 @@ const Comment = ({ onClick,username,text,numberLikes,date,comentarios,comments_c
     const user = localStorage.getItem('user')
 
     const getRandomInt = () => {
-        return Math.floor(Math.random() * (pictures.length)) - 1;
+        return Math.floor(Math.random() * (pictures.length)) + 1;
     } 
 
     const deleteComment = async () => {
+        console.log(tweet_id,username,text,date)
         const URL = 'http://localhost:5000/comments/'
         const response = await fetch(URL, {
             method: 'DELETE',
@@ -31,7 +32,7 @@ const Comment = ({ onClick,username,text,numberLikes,date,comentarios,comments_c
                 "id_tweet": tweet_id,
                 "user": username,
                 "text": text,
-                "date": date,
+                "date_C": date,
             }
         })
 

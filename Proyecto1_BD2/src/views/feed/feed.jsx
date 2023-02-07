@@ -4,7 +4,7 @@ import twitter from '../../assets/twitter.jpg'
 import Tweet from '../../components/tweet/tweet.jsx'
 
 
-const Feed = ({ clickTweet }) => {
+const Feed = ({ clickTweet, picture }) => {
 
     const [limit, setLimit] = useState(5)
     const [tweet, setTweet] = useState('')
@@ -71,7 +71,7 @@ const Feed = ({ clickTweet }) => {
                 <div className="post-tweet">
                     <div className="text-container-feed">
                         <div className="circle-container">
-                            <div className="circle" />
+                            <div className="circle" style={{backgroundImage:`url(${picture})`}} />
                         </div>
                         <textarea value={tweet} className='tw' maxLength="130" onChange={handleChange} placeholder="¿Qué está pasando?" />
                     </div>
@@ -93,7 +93,6 @@ const Feed = ({ clickTweet }) => {
                                comments_count = {tweeet.comments_count}
                                tweetInfo={tweeet}
                                bandera={false}
-                               imagen={tweet.image}
                             />
                         ))}
                     <div className="button-more-container">

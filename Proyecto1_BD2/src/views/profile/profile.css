@@ -49,7 +49,6 @@
     height: 110px;
     width: 110px;
     border-radius: 50%;
-    background-image: url('../../assets/empty_profile.jpg');
     background-size: contain;
     
 }
@@ -58,12 +57,18 @@
     height : 100px;
     display: flex;
     border: 1px solid gray;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
 }
 
-.name {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+.username {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.desc {
+    font-size: 14px;
 }
 .feed-container {
     flex: 1;

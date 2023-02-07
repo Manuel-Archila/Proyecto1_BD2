@@ -15,7 +15,7 @@ import p9 from '../../assets/personas/P9.jpeg'
 import p10 from '../../assets/personas/P10.jpeg'
 
 
-const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count,tweetInfo,bandera,imagen }) => {
+const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count,tweetInfo,bandera }) => {
 
     const getRandomInt = () => {
         return Math.floor(Math.random() * (pictures.length)) - 1;
@@ -25,7 +25,7 @@ const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count
     const [likes, setLikes] = useState(numberLikes)
     const random = useRef(getRandomInt())
     const [refresh, setRefresh] = useState(false)
-    const [image, setImage] = useState(imagen)
+    // const [image, setImage] = useState(getImage())
 
     
     const handleClick = () => {
@@ -92,10 +92,7 @@ const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count
             : null}
             <div className="content-container-tweet" onClick={handleClick}>
                 <div className="user-circle-container">
-                    {
-                        image ? <img className='user-circle' src={`data:image/jpeg;base64,${image}`}></img> :
-                        <div className="user-circle" style={{ backgroundImage: `url(${pictures[getRandomInt()]})` }} />
-                    }
+                    <div className="user-circle" style={{ backgroundImage: `url(${pictures[getRandomInt()]})` }} />
                 </div>
                 <div className="content">
                     <div className="username">
