@@ -50,7 +50,7 @@ const LeftMenu = ({picture}) => {
             </div>
 
             <div className="Boton-Container" onClick={() => navigation('/analytics')}>
-                <div className="Icon-container3" style={{ backgroundImage: `url(${analisis})` }} />
+                <div className="Icon-container3A" style={{ backgroundImage: `url(${analisis})` }} />
                 <p>Twitter Analytics</p>
             </div>
             <div className="Boton-Container">

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './topHashtags.css'
 import twitter from '../../assets/twitter.jpg'
 import Tweet from '../../components/tweet/tweet.jsx'
+import WordCloud from 'react-d3-cloud';
 
 const TopHashtags = ({ clickTweet }) => {
 
@@ -16,7 +17,10 @@ const TopHashtags = ({ clickTweet }) => {
           }
         })
         const responseJson = await response.json()
-        setHashtags(responseJson)
+        const data = []
+        responseJson.map((element) => {data.push({"text": element._id, "value": element.count})})
+        console.log(data)
+        setHashtags(data)
       }
     
     useEffect(() => {
@@ -25,7 +29,12 @@ const TopHashtags = ({ clickTweet }) => {
 
     return (
         <div className="container-hashtags">
-            {hashtags.map((hashtag) => <div>{hashtag._id}</div>)}
+          <div className="hashtag-header">
+            Top 10 hashtags del momento
+          </div>
+          <div className="hashtags">
+            <WordCloud data={hashtags} />
+          </div>
         </div>
     )
 }
