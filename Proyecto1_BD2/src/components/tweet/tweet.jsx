@@ -25,6 +25,8 @@ const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count
     const [likes, setLikes] = useState(numberLikes)
     const random = useRef(getRandomInt())
     const [refresh, setRefresh] = useState(false)
+    const [edit, setEdit] = useState(false)
+    const tweetText = useRef(text.substring(text.length - 140, text.length))
     // const [image, setImage] = useState(getImage())
 
     
@@ -79,6 +81,32 @@ const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count
         forceUpdate()
     }
 
+    const editTweet = (e) => {
+        tweetText.current = e.target.value
+    }
+
+    const onEdit = async () => {
+        const URL = 'http://localhost:5000/tweet/'
+        const id = tweetInfo._id.$oid
+        const user = localStorage.getItem('user')
+        const response = await fetch(URL, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify({
+                "username": user,
+                "id_tweet": id,
+                "likes": likes,
+                "text": text
+            })
+        })
+
+        const responseJson = await response.json()
+        console.log(responseJson)
+    }
+
     useEffect(() => {
         //getImage()
     }, [refresh])
@@ -86,11 +114,15 @@ const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count
     return (
         <div className="container-tweet">
             <div className="header" />
-            { bandera ?<div className="close-boton"  onClick={deleteTweet}>
-                    <p className='pdelete'>X</p>
-            </div>
-            : null}
-            <div className="content-container-tweet" onClick={handleClick}>
+            { bandera &&
+                <div className="edition-container">
+                    <div className="close-boton" >
+                        <p className='peditar' onClick={() => setEdit(!edit)}>Editar</p>
+                        <p className='pdelete' onClick={deleteTweet} >X</p>
+                    </div>
+                </div>
+            }
+            <div className="content-container-tweet" onClick={edit ? null : handleClick}>
                 <div className="user-circle-container">
                     <div className="user-circle" style={{ backgroundImage: `url(${pictures[getRandomInt()]})` }} />
                 </div>
@@ -100,9 +132,13 @@ const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count
                         <p className="date-tweet"> · </p>
                         <p className="date-tweet">{date}</p>
                     </div>
-                    <div className="content-tweet">
-                        {text.substring(text.length - 140, text.length)}
-                    </div>
+                    {
+                        !edit ? 
+                        <div className="content-tweet">
+                            {tweetText.current}
+                        </div> :
+                        <textarea onChange={editTweet} maxLength="130" className="edit-tweet" value={tweetText.current}></textarea>
+                    }
                 </div>
             </div>
             <div className="footer-tweet">

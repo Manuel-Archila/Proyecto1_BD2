@@ -12,7 +12,7 @@ const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
   datasets: [
     {
-      label: 'Número de por país',
+      label: 'Número de usuarios por país',
       data: [12, 19, 3, 5, 2, 3],
       backgroundColor: [
         '#10A19D',
@@ -51,7 +51,7 @@ const TopCountries = ({ clickTweet }) => {
 
   const getData = async () => {
     const url = 'http://localhost:5000/countries/'
-    const user = "August Goodwin"
+    const user = localStorage.getItem("user")
     const response = await fetch(url, {
       method:'GET',
       headers: {

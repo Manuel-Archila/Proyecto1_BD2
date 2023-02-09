@@ -39,3 +39,16 @@
     font-size: 18px;
     margin-bottom: 5px;
 }
+
+.fan-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.image-fan {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin-right: 20px;
+}

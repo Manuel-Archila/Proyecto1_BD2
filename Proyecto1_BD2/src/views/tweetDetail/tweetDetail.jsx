@@ -69,11 +69,11 @@ const TweetDetail = ({ clickBack, tweetInfo }) => {
 
     const submitReply = async () => {
         if (reply.length > 0) {
-            const URL = 'http://localhost:5000/tweet/'
+            const URL = 'http://localhost:5000/tweetComment/'
             const id = tweetInfo._id.$oid
             const user = localStorage.getItem('user')
             const response = await fetch(URL, {
-                method: 'PUT',
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                     // 'Content-Type': 'application/x-www-form-urlencoded',

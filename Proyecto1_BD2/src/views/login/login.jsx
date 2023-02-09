@@ -65,11 +65,11 @@ const Login = () => {
                     <div className='inputs'>
                         <p className='header'>Inicia sesión en Twitter</p>
                         <div className='input-container'>
-                            <p className='label-in'>Nombre de usuario</p>
+                            <label className="country-selector" htmlFor="country">Nombre de usuario:</label>
                             <input value={user} className='input' type="text" name="usuario" placeholder="" onChange={modifyUser}/>
                         </div>
                         <div className='input-container'>
-                            <p className='label-in'>Contraseña</p>  
+                            <label className="country-selector" htmlFor="country">Contraseña:</label>  
                             <input value={password} className='input' type="password" name="password" placeholder="" onChange={modifyPassword}/>
                         </div>
                     </div>

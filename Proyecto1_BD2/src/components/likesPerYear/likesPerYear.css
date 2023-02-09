@@ -17,24 +17,16 @@
     width: 100%;
 }
 
-.hashtags1 {
-    flex: 3;
-    width: 100%;
+.graph-tweets {
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    flex: 2;
+    width: 90%;
     align-items: center;
-    flex-direction: row;
+    justify-content: center;
 }
 
-.grid-container2 {
-    width: 70%;
-    flex: 1;
-    grid-template-columns: 33% 33% 33%;
-    grid-gap: 10px;
-    grid-auto-flow: row;
-}
-
-.grid-container2 > div {
+.graph-tweets > div {
     margin-left: 120px;
     font-size: 18px;
     margin-bottom: 5px;

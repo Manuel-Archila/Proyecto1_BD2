@@ -1,23 +1,23 @@
 import { useState, useEffect } from 'react'
-import './LikeAnalytics.css'
+import './CommentAnalytics.css'
 
 
 const CommentAnalytics = ({title}) => {
 
     const [totalLikes, setTotalLikes] = useState(0)
+    const user = localStorage.getItem('user')
 
     const getLikesA = async() => {
-        const url = 'http://localhost:5000/LikesA/'
+        const url = 'http://localhost:5000/commentsA/'
         const response = await fetch(url, {
           method:'GET',
           headers: {
-            "username": "Rhona Vaughan",
-            "year": "2023",
+            "username": user,
           }
         })
         const responseJson = await response.json()
-        console.log(responseJson[0]["totalLikes"])
-        setTotalLikes(responseJson[0]["totalLikes"])
+        console.log(responseJson)
+        setTotalLikes(responseJson[0]["total_comments"])
       }
     
     useEffect(() => {

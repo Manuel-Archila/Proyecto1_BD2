@@ -5,6 +5,7 @@
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .header-analytics {
@@ -12,6 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-bottom: 3px solid white;
 }
 
 .helper {
@@ -52,4 +54,13 @@
 
 .pr {
     background-color: wheat;
+}
+
+.back-arrow2 {
+    height: 32px;
+    width: 32px;
+    background-image: url('../../assets/flecha.jpg');
+    background-size: contain;
+    cursor:pointer;
+    margin-left: 20px;
 }

@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import './topHashtags.css'
 import twitter from '../../assets/twitter.jpg'
 import Tweet from '../../components/tweet/tweet.jsx'
-import WordCloud from 'react-d3-cloud';
 
 const TopHashtags = ({ clickTweet }) => {
 
@@ -32,8 +31,10 @@ const TopHashtags = ({ clickTweet }) => {
           <div className="hashtag-header">
             Top 10 hashtags del momento
           </div>
-          <div className="hashtags">
-            <WordCloud data={hashtags} />
+          <div className="hashtags1">
+            <div className='grid-container2'>
+              {hashtags.map((element) => <div>{element.text}</div>)}
+            </div>
           </div>
         </div>
     )

@@ -7,7 +7,7 @@ const Register = () => {
     const navigation = useNavigate()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [country, setCountry] = useState('')
+    const [country, setCountry] = useState('Afghanistan')
     const [message, setMessage] = useState('')
     const [description, setDescription] = useState('')
 
@@ -42,7 +42,8 @@ const Register = () => {
                     "username": username,
                     "password": password, 
                     "country": country,
-                    "desciption": description
+                    "tweets": [],
+                    "desciption": description,
                 })
 
             })
