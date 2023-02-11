@@ -26,7 +26,6 @@ const Home = () => {
           }
         })
         const responseJson = await response.json()
-        console.log(responseJson)
         setImage(responseJson.image)
 
     }

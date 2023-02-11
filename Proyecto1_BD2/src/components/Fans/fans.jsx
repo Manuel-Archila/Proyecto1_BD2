@@ -19,7 +19,6 @@ const Fans = ({ clickTweet }) => {
         const responseJson = await response.json()
         const data = []
         responseJson.map((element) => {data.push({"text": element._id, "value": element.count, "image": element.image})})
-        console.log(data)
         setFans(data)
       }
     

@@ -16,7 +16,6 @@ const CommentAnalytics = ({title}) => {
           }
         })
         const responseJson = await response.json()
-        console.log(responseJson)
         setTotalLikes(responseJson[0]["total_comments"])
       }
     

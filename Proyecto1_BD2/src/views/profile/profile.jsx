@@ -25,7 +25,6 @@ const Profile = () => {
           }
         })
         const responseJson = await response.json()
-        console.log(responseJson)
         setDesc(responseJson.desciption)
         setImage(responseJson.image)
       }

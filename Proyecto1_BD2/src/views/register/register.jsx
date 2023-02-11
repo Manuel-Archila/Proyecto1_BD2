@@ -11,6 +11,18 @@ const Register = () => {
     const [message, setMessage] = useState('')
     const [description, setDescription] = useState('')
 
+    const picture = ["https://proyecto1-bd2.s3.amazonaws.com/P1.jpeg",
+               "https://proyecto1-bd2.s3.amazonaws.com/P2.jpeg",
+               "https://proyecto1-bd2.s3.amazonaws.com/P3.jpeg",
+               "https://proyecto1-bd2.s3.amazonaws.com/P4.jpeg",
+               "https://proyecto1-bd2.s3.amazonaws.com/P5.jpeg",
+               "https://proyecto1-bd2.s3.amazonaws.com/P6.jpeg",
+               "https://proyecto1-bd2.s3.amazonaws.com/P7.jpeg",
+               "https://proyecto1-bd2.s3.amazonaws.com/P8.jpeg",
+               "https://proyecto1-bd2.s3.amazonaws.com/P9.jpeg",
+               "https://proyecto1-bd2.s3.amazonaws.com/P10.jpeg"
+               ]
+
 
 
     const handleUsername = (event) =>{
@@ -42,15 +54,13 @@ const Register = () => {
                     "username": username,
                     "password": password, 
                     "country": country,
-                    "tweets": [],
                     "desciption": description,
+                    "image": picture[Math.floor(Math.random() * 10)],
                 })
 
             })
             const responseJSON = await response.json()
-            console.log(responseJSON.message)
             if (responseJSON.message === '409'){
-                console.log(responseJSON.message)
                 setMessage('Este usuario ya existe')
             }else if(responseJSON.message === '400'){
                 setMessage('Ha ocurrido un error')

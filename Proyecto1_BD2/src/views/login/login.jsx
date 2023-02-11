@@ -40,7 +40,6 @@ const Login = () => {
             })
 
             const responseJson = await response.json()
-            console.log(responseJson)
 
             if (responseJson.message === "200") {
                 localStorage.setItem('user', user)

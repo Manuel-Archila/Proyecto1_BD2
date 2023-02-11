@@ -24,7 +24,6 @@ const Comment = ({ onClick,username,text,numberLikes,date,comentarios,comments_c
     } 
 
     const deleteComment = async () => {
-        console.log(tweet_id,username,text,date)
         const URL = 'http://localhost:5000/comments/'
         const response = await fetch(URL, {
             method: 'DELETE',
@@ -37,7 +36,6 @@ const Comment = ({ onClick,username,text,numberLikes,date,comentarios,comments_c
         })
 
         const responseJson = await response.json()
-        console.log(responseJson)
     }
 
     return (

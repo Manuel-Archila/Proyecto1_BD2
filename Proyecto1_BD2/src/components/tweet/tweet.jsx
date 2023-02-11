@@ -52,18 +52,7 @@ const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count
         setLikes(likes + 1)
     }
 
-    const getImage = async () => {
-        const URL = 'http://localhost:5000/image/'
-        const response = await fetch(URL, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-
-        const responseJson = await response.json()
-        setImage(responseJson.imagen)
-    }
+    
 
     const deleteTweet = async () => {
         const URL = 'http://localhost:5000/tweet/'
@@ -76,7 +65,6 @@ const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count
         })
 
         const responseJson = await response.json()
-        console.log(responseJson)
         setRefresh(!refresh)
         forceUpdate()
     }
@@ -104,7 +92,6 @@ const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count
         })
 
         const responseJson = await response.json()
-        console.log(responseJson)
     }
 
     useEffect(() => {
