@@ -14,7 +14,7 @@ import p8 from '../../assets/personas/P8.jpeg'
 import p9 from '../../assets/personas/P9.jpeg'
 import p10 from '../../assets/personas/P10.jpeg'
 
-const Comment = ({ onClick,username,text,numberLikes,date,comentarios,comments_count,tweet_id }) => {
+const Comment = ({ onClick,username,text,numberLikes,date,comentarios,comments_count,tweet_id,image }) => {
 
     const pictures = [p1,p2,p3,p4,p5,p7,p8,p9,p10]
     const user = localStorage.getItem('user')
@@ -47,7 +47,7 @@ const Comment = ({ onClick,username,text,numberLikes,date,comentarios,comments_c
             : null}
             <div className="content-container-tweet">
                 <div className="user-circle-container">
-                    <div className="user-circle" style={{ backgroundImage: `url(${pictures[getRandomInt()]})` }} />
+                    <div className="user-circle" style={{ backgroundImage: `url(${image})` }} />
                 </div>
                 <div className="content">
                     <div className="username">

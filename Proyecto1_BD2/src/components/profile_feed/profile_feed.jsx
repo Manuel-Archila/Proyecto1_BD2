@@ -3,7 +3,7 @@ import './profile_feed.css'
 import twitter from '../../assets/twitter.jpg'
 import Tweet from '../../components/tweet/tweet.jsx'
 
-const Profilefeed = ({ clickTweet }) => {
+const Profilefeed = ({ clickTweet, image }) => {
     
     const user = localStorage.getItem('user')
     const [limit, setLimit] = useState(5)
@@ -30,12 +30,19 @@ const Profilefeed = ({ clickTweet }) => {
         setLimit(limit+5)
     }
 
+    const onDelete = (index) => {
+        console.log(index)
+        const contenidoNew = [...contenido]
+        contenidoNew.splice(index, 1)
+        setContenido(contenidoNew)
+    }
+
 
     return (
         <div className="container-feed">
             <div className="content-container">
                 <div className="scroll">
-                {contenido.map((tweeet)=>(
+                {contenido.map((tweeet, index)=>(
                         <Tweet key={tweeet._id.$oid}
                                click={clickTweet} 
                                username ={tweeet.username} 
@@ -44,8 +51,11 @@ const Profilefeed = ({ clickTweet }) => {
                                numberLikes = {tweeet.likes}
                                comentarios = {tweeet.comments}
                                comments_count = {tweeet.comments_count}
+                               image={image}
                                tweetInfo={tweeet}
                                bandera={true}
+                               deleteFunc={onDelete}
+                               index={index}
 
                                />
                         ))}

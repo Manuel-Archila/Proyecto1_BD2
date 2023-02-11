@@ -51,12 +51,12 @@ const TopCountries = ({ clickTweet }) => {
 
   const getData = async () => {
     const url = 'http://localhost:5000/countries/'
-    const user = localStorage.getItem("user")
+    const user = localStorage.getItem("userId")
     const response = await fetch(url, {
       method:'GET',
       headers: {
         'Content-Type': 'application/json', 
-        'username': user
+        'userID': user
       }
     })
     const responseJson = await response.json()

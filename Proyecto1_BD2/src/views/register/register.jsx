@@ -65,6 +65,7 @@ const Register = () => {
             }else if(responseJSON.message === '400'){
                 setMessage('Ha ocurrido un error')
             }else{
+                localStorage.setItem('userId', responseJson.userId)
                 setMessage('Usuario creado exitosamente')
                 setUsername('')
                 setPassword('')

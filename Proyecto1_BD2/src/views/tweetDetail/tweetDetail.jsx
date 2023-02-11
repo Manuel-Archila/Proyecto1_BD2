@@ -6,7 +6,7 @@ import like from '../../assets/heart.png'
 import flecha from '../../assets/flecha.jpg'
 import Comment from '../../components/comment/comment'
 
-const TweetDetail = ({ clickBack, tweetInfo }) => {
+const TweetDetail = ({ clickBack, tweetInfo, userImage }) => {
 
     const [reply, setReply] = useState('')
     const [comments, setComments] = useState([])
@@ -45,7 +45,8 @@ const TweetDetail = ({ clickBack, tweetInfo }) => {
         })
 
         const responseJson = await response.json()
-        setComments(responseJson[0].comments)
+        console.log(responseJson)
+        setComments(responseJson)
     }
 
     const clickLike = async () => {
@@ -109,8 +110,8 @@ const TweetDetail = ({ clickBack, tweetInfo }) => {
                 </div>
                 <div className="post-tweet-details">
                     <div className="text-container">
-                        <div className="circle-container">
-                            <div className="circle" />
+                        <div className="circle-container" >
+                            <div className="circle" style={{backgroundImage: `url(${tweetInfo.image})`}}/>
                         </div>
                         <div className='user'>
                             {tweetInfo.username}
@@ -137,7 +138,7 @@ const TweetDetail = ({ clickBack, tweetInfo }) => {
                     </div>
                     <div className='reply-details'>
                         <div className="circle-container">
-                            <div className="circle" />
+                            <div className="circle" style={{backgroundImage: `url(${userImage})`}}/>
                         </div>
                         <textarea maxLength='130' value={reply} onChange={handleChange} className='reply-text' placeholder='Tweetea tu respuesta'/>
                     </div>
@@ -149,11 +150,12 @@ const TweetDetail = ({ clickBack, tweetInfo }) => {
                 </div>
                 <div className="scroll-comments">
                     {comments.map((comment) => <Comment 
-                        key={comment.username_comment}
-                        username={comment.username_comment}
-                        text={comment.text_comment}
-                        date={comment.date_comment}
-                        tweet_id={tweetInfo._id.$oid}  />)
+                        key={comment.user}
+                        username={comment.user}
+                        text={comment.text}
+                        date={comment.date}
+                        tweet_id={tweetInfo._id.$oid}
+                        image={comment.image}  />)
                     }
                 </div>
             </div>

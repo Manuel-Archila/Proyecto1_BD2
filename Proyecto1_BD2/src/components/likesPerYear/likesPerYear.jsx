@@ -51,14 +51,15 @@ const LikesPerYear = () => {
     const dataCountries = useRef([])
     const [dataVisual, setDataVisual] = useState()
 
+
     const getData = async () => {
         const url = 'http://localhost:5000/LikesA/'
-        const user = localStorage.getItem("user")
+        const userid = localStorage.getItem('userId')
         const response = await fetch(url, {
             method:'GET',
             headers: {
                 'Content-Type': 'application/json', 
-                'username': user
+                'userid': userid
             }
         })
         const responseJson = await response.json()

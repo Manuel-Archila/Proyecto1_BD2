@@ -15,7 +15,7 @@ import p9 from '../../assets/personas/P9.jpeg'
 import p10 from '../../assets/personas/P10.jpeg'
 
 
-const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count,tweetInfo,bandera,image }) => {
+const Tweet = ({ index,click,username,text,numberLikes,date,comentarios,comments_count,tweetInfo,bandera,image,deleteFunc }) => {
 
     const getRandomInt = () => {
         return Math.floor(Math.random() * (pictures.length)) - 1;
@@ -65,7 +65,7 @@ const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count
         })
 
         const responseJson = await response.json()
-        setRefresh(!refresh)
+        deleteFunc(index)
     }
 
     const editTweet = (e) => {

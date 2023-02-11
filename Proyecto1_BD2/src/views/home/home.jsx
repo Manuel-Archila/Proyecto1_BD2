@@ -40,7 +40,7 @@ const Home = () => {
                 <LeftMenu picture={image}/>
             </div>
             <div className="feed-container">
-                {feed ? <Feed clickTweet={clickTweet} picture={image}/> : <TweetDetail tweetInfo={tweetInfo.current} clickBack={() => setFeed(true)}/>}
+                {feed ? <Feed clickTweet={clickTweet} picture={image}/> : <TweetDetail tweetInfo={tweetInfo.current} clickBack={() => setFeed(true)} userImage={image}/>}
             </div>
             <div className="extra" />
         </div>

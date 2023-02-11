@@ -56,7 +56,7 @@ const Profile = () => {
                     <div className='yours-item'>Likes</div>
                 </div>
                 <div className="feed-container">
-                {feed ? <Profilefeed clickTweet={() => setFeed(false)}/> : <TweetDetail clickBack={() => setFeed(true)}/>}
+                {feed ? <Profilefeed image={image} clickTweet={() => setFeed(false)}/> : <TweetDetail clickBack={() => setFeed(true)}/>}
                 </div>
             </div>
             <div className="extra" />

@@ -32,7 +32,7 @@ const TopHashtags = ({ clickTweet }) => {
           </div>
           <div className="hashtags1">
             <div className='grid-container2'>
-              {hashtags.map((element) => <div>{element.text}</div>)}
+              {hashtags.map((element) => <div key={element.text}>{element.text}</div>)}
             </div>
           </div>
         </div>

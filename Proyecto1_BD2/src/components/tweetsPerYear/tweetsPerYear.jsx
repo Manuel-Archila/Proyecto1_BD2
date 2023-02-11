@@ -55,12 +55,12 @@ const TweetsPerYear = ({ clickTweet }) => {
 
     const getData = async () => {
         const url = 'http://localhost:5000/tweets-per-year/'
-        const user = localStorage.getItem("user")
+        const userid = localStorage.getItem("userId")
         const response = await fetch(url, {
             method:'GET',
             headers: {
                 'Content-Type': 'application/json', 
-                'username': user
+                'userId': userid
             }
         })
         const responseJson = await response.json()

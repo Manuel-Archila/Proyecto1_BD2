@@ -9,11 +9,27 @@ import opciones from '../assets/opcion.jpg'
 import analisis from '../assets/analisis.jpg'
 import foto from '../assets/empty_profile.jpg'
 import { useNavigate } from 'react-router-dom'
+import Switch from '@mui/material/Switch'
+import { alpha, styled } from '@mui/material/styles';
+import { pink } from '@mui/material/colors';
 
+
+const PinkSwitch = styled(Switch)(({ theme }) => ({
+    '& .MuiSwitch-switchBase.Mui-checked': {
+      color: pink[600],
+      '&:hover': {
+        backgroundColor: alpha(pink[600], theme.palette.action.hoverOpacity),
+      },
+    },
+    '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+      backgroundColor: pink[600],
+    },
+  }))
 
 const LeftMenu = ({picture}) => {
     const navigation = useNavigate()
     const user = localStorage.getItem('user')
+    const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
     return (
         <div className="Menu-Container">
@@ -59,10 +75,13 @@ const LeftMenu = ({picture}) => {
                 </button>
             </div>
 
-            <div className="Boton-Container">
+            <div className="Boton-Container2">
+                <div className='toggle-container'>
+                    Día del cariño
+                    <PinkSwitch {...label}  />
+                </div>
                 <div className="perfil-container">
                     <div className="image_profile" style={{ backgroundImage: `url(${picture})` }} />
-
                     <div className="perfil-p-container">
                         <div className="arroba"> {user}</div>
 

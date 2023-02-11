@@ -4,7 +4,9 @@ import twitter from '../../assets/twitter.jpg'
 import Tweet from '../../components/tweet/tweet.jsx'
 
 const Fans = ({ clickTweet }) => {
+    const userid = window.localStorage.getItem('userId')
     const user = window.localStorage.getItem('user')
+
 
     const [fans, setFans] = useState([])
 
@@ -13,7 +15,7 @@ const Fans = ({ clickTweet }) => {
         const response = await fetch(url, {
           method:'GET',
           headers: {
-            "username": user
+            "userId": userid
           }
         })
         const responseJson = await response.json()

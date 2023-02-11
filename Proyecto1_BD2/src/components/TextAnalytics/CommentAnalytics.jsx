@@ -6,13 +6,15 @@ const CommentAnalytics = ({title}) => {
 
     const [totalLikes, setTotalLikes] = useState(0)
     const user = localStorage.getItem('user')
+    const userid = localStorage.getItem('userId')
 
-    const getLikesA = async() => {
+
+    const getCommentsA = async() => {
         const url = 'http://localhost:5000/commentsA/'
         const response = await fetch(url, {
           method:'GET',
           headers: {
-            "username": user,
+            "userId": userid,
           }
         })
         const responseJson = await response.json()
@@ -20,7 +22,7 @@ const CommentAnalytics = ({title}) => {
       }
     
     useEffect(() => {
-      getLikesA()
+      getCommentsA()
     }, [])
 
     return (

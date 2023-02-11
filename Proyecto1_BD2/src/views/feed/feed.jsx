@@ -20,7 +20,6 @@ const Feed = ({ clickTweet, picture }) => {
           }
         })
         const responseJson = await response.json()
-        console.log(responseJson)
         setContenido(responseJson)
       }
     
