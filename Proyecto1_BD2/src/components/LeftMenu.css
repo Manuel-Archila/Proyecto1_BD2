@@ -158,7 +158,20 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 20px;
+}
+
+.delete-account {
+    height: 40px;
+    width: 150px;
+    background-color: rgb(240, 72, 72);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
 
