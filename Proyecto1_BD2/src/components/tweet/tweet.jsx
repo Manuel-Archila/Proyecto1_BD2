@@ -15,7 +15,7 @@ import p9 from '../../assets/personas/P9.jpeg'
 import p10 from '../../assets/personas/P10.jpeg'
 
 
-const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count,tweetInfo,bandera }) => {
+const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count,tweetInfo,bandera,image }) => {
 
     const getRandomInt = () => {
         return Math.floor(Math.random() * (pictures.length)) - 1;
@@ -26,7 +26,7 @@ const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count
     const random = useRef(getRandomInt())
     const [refresh, setRefresh] = useState(false)
     const [edit, setEdit] = useState(false)
-    const tweetText = useRef(text.substring(text.length - 140, text.length))
+    const [tweetText, setTweetText] = useState(text.substring(text.length - 140, text.length))
     // const [image, setImage] = useState(getImage())
 
     
@@ -66,11 +66,12 @@ const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count
 
         const responseJson = await response.json()
         setRefresh(!refresh)
-        forceUpdate()
     }
 
     const editTweet = (e) => {
-        tweetText.current = e.target.value
+        if (e.key === e.BACKSPACE) {
+            setTweetText(e.target.value)
+        }
     }
 
     const onEdit = async () => {
@@ -84,14 +85,20 @@ const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count
                 // 'Content-Type': 'application/x-www-form-urlencoded',
             },
             body: JSON.stringify({
-                "username": user,
                 "id_tweet": id,
                 "likes": likes,
-                "text": text
+                "text": tweetText
             })
         })
 
         const responseJson = await response.json()
+    }
+
+    const handleEdit = () => {
+        if (edit === true) {
+            onEdit()
+        }
+        setEdit(!edit)
     }
 
     useEffect(() => {
@@ -104,14 +111,14 @@ const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count
             { bandera &&
                 <div className="edition-container">
                     <div className="close-boton" >
-                        <p className='peditar' onClick={() => setEdit(!edit)}>Editar</p>
+                        <p className='peditar' onClick={handleEdit}>Editar</p>
                         <p className='pdelete' onClick={deleteTweet} >X</p>
                     </div>
                 </div>
             }
             <div className="content-container-tweet" onClick={edit ? null : handleClick}>
                 <div className="user-circle-container">
-                    <div className="user-circle" style={{ backgroundImage: `url(${pictures[getRandomInt()]})` }} />
+                    <div className="user-circle" style={{ backgroundImage: `url(${image})` }} />
                 </div>
                 <div className="content">
                     <div className="username">
@@ -122,9 +129,9 @@ const Tweet = ({ click,username,text,numberLikes,date,comentarios,comments_count
                     {
                         !edit ? 
                         <div className="content-tweet">
-                            {tweetText.current}
+                            {tweetText}
                         </div> :
-                        <textarea onChange={editTweet} maxLength="130" className="edit-tweet" value={tweetText.current}></textarea>
+                        <textarea onChange={editTweet} maxLength="130" className="edit-tweet" >{tweetText}</textarea>
                     }
                 </div>
             </div>

@@ -20,6 +20,7 @@ const Feed = ({ clickTweet, picture }) => {
           }
         })
         const responseJson = await response.json()
+        console.log(responseJson)
         setContenido(responseJson)
       }
     
@@ -93,6 +94,7 @@ const Feed = ({ clickTweet, picture }) => {
                                comments_count = {tweeet.comments_count}
                                tweetInfo={tweeet}
                                bandera={false}
+                               image={tweeet.image}
                             />
                         ))}
                     <div className="button-more-container">

@@ -11,10 +11,11 @@ const Profilefeed = ({ clickTweet }) => {
 
     const getMyTweets = async() => {
         const url = 'http://localhost:5000/perfil/'
+        const userId = localStorage.getItem('userId')
         const response = await fetch(url, {
           method:'GET',
           headers: {
-            'name': user,
+            'userId': userId,
             'limite' : limit,
           }
         })

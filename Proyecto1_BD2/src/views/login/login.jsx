@@ -43,6 +43,7 @@ const Login = () => {
 
             if (responseJson.message === "200") {
                 localStorage.setItem('user', user)
+                localStorage.setItem('userId', responseJson.userId)
                 navigation('/home')
             }
             else if (responseJson.message === "401") {
