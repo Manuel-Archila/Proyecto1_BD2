@@ -111,7 +111,8 @@ const Tweet = ({ index,click,username,text,numberLikes,date,comentarios,comments
             { bandera &&
                 <div className="edition-container">
                     <div className="close-boton" >
-                        <p className='peditar' onClick={handleEdit}>Editar</p>
+                        {!edit ? <p className='peditar' onClick={handleEdit}>Editar</p>
+                        :<p className='peditar' onClick={handleEdit}>Confirmar</p>}
                         <p className='pdelete' onClick={deleteTweet} >X</p>
                     </div>
                 </div>

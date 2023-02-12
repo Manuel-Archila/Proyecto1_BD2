@@ -129,6 +129,7 @@
 
 .likes-tweet-container {
     display: flex;
+    cursor: pointer;
 }
 
 .box-cont {

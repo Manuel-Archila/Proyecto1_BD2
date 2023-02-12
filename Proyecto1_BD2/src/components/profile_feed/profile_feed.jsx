@@ -45,7 +45,7 @@ const Profilefeed = ({ clickTweet, image }) => {
                 {contenido.map((tweeet, index)=>(
                         <Tweet key={tweeet._id.$oid}
                                click={clickTweet} 
-                               username ={tweeet.username} 
+                               username ={user} 
                                date = {tweeet.date} 
                                text = {tweeet.text}
                                numberLikes = {tweeet.likes}

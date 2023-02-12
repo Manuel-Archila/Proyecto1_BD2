@@ -37,6 +37,7 @@ const TweetDetail = ({ clickBack, tweetInfo, userImage }) => {
         const URL = 'http://localhost:5000/comments/'
         const id = tweetInfo._id.$oid
         const user = localStorage.getItem('user')
+        console.log(id)
         const response = await fetch(URL, {
             method: 'GET',
             headers: {
@@ -87,11 +88,18 @@ const TweetDetail = ({ clickBack, tweetInfo, userImage }) => {
             })
 
             const responseJson = await response.json()
+            responseJson['image'] = userImage
             const commentsNew = [...comments]
             commentsNew.unshift(responseJson)
             setComments(commentsNew)
             setReply('')
         }
+    }
+
+    const deleteComment = (index) => {
+        const commentsNew = [...comments]
+        commentsNew.splice(index, 1)
+        setComments(commentsNew)
     }
 
 
@@ -149,13 +157,15 @@ const TweetDetail = ({ clickBack, tweetInfo, userImage }) => {
                     </div>
                 </div>
                 <div className="scroll-comments">
-                    {comments.map((comment) => <Comment 
+                    {comments.map((comment, index) => <Comment 
+                        index = {index}
                         key={comment.user}
                         username={comment.user}
                         text={comment.text}
                         date={comment.date}
                         tweet_id={tweetInfo._id.$oid}
-                        image={comment.image}  />)
+                        image={comment.image}
+                        deleteHandle = {deleteComment}  />)
                     }
                 </div>
             </div>

@@ -42,6 +42,7 @@ const Feed = ({ clickTweet, picture }) => {
         if (tweet.length > 0)
         {
             const url = 'http://localhost:5000/tweet/'
+            const userId = localStorage.getItem('userId')
             const user = localStorage.getItem('user')
             const response = await fetch(url, {
                 method: 'POST',
@@ -49,13 +50,15 @@ const Feed = ({ clickTweet, picture }) => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    "username": user,
+                    "userid": userId,
                     "text": tweet
                 })
             })
 
             const responseJson = await response.json()
             const contenidoNew = [...contenido]
+            responseJson['image'] = picture
+            responseJson["username"] = user
             contenidoNew.unshift(responseJson)
             setContenido(contenidoNew)
             setTweet('')
