@@ -58,8 +58,14 @@
     display: flex;
     border: 1px solid gray;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 10px;
+}
+
+.infotop{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .username {
@@ -95,4 +101,16 @@
 .extra {
     flex: 1;
     width: 100%;
+}
+
+.edit{
+    height: 30px;
+    border: 1px solid gray;
+    display: flex;
+}
+
+.peditar {
+    color: #1d9bf0;
+    font-size: 15px;
+    cursor: pointer;
 }
