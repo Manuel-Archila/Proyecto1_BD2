@@ -7,6 +7,8 @@ import LikesPerYear from '../../components/likesPerYear/likesPerYear'
 import CommentAnalytics from '../../components/TextAnalytics/CommentAnalytics'
 import TweetsPerYear from '../../components/tweetsPerYear/tweetsPerYear'
 import Fans from '../../components/Fans/fans'
+import MongoC from '../../components/MongoC/MongoC'
+
 import { useNavigate } from 'react-router-dom'
 
 
@@ -34,11 +36,24 @@ const Analytics = () => {
             </div>
             <div className='body-analytics'>
                 <TopHashtags />
-                <TopCountries />
+                <Fans />
                 <CommentAnalytics title='Cantidad de comentarios en tu contenido'/>
                 <LikesPerYear />
                 <TweetsPerYear />
-                <Fans />
+                <TopCountries />
+
+                <div className="container-hashtags">
+                    <MongoC chartID="63e54bb5-6665-4f44-8aca-e36419c643d0"
+                        title="s" />
+                </div>
+                <div className="container-hashtags">
+                    <MongoC chartID="63e5516c-91d7-48da-8dad-4662153b1ef8"
+                        title="s" />
+                </div>
+                <div className="container-hashtags">
+                    <MongoC chartID="63e549fb-7e11-458f-8ceb-487cfd8986f5"
+                        title="s" />
+                </div>
             </div>
         </div>
     )
